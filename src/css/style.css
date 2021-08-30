@@ -1,0 +1,51 @@
+body{
+    background-color: antiquewhite;
+}
+#back{
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    border-radius: 10px;
+    padding: 10px;
+}
+#AddOpt{
+    display: flex;
+    justify-content: center;
+    height: 40px;
+}
+.inputText{
+    width: 200px;
+	margin: 0 auto;
+	padding: 10px;
+    outline: none;
+	margin-bottom: 10px;
+	border-radius: 50px;
+}
+.item{
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+}
+.opt{
+    padding: 1rem;
+	cursor: pointer;
+	border-radius: 40px;
+	background-color: #ddd;
+	list-style: none;
+}
+#Codigo{
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px;
+}
+#criarButton{
+    position: relative;
+    left: 20px;
+    width: 150px;
+    height: 40px;
+    border-radius: 20px;
+}
