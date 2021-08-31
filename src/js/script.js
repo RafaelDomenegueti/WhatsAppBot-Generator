@@ -1,4 +1,11 @@
 var cont = 0;
+var comandoComp;
+
+const topo = `function scripts(msg) {`
+const fim = `
+};
+
+module.exports = { scripts };`
 
 function AddOpt() {
     cont++
@@ -50,19 +57,41 @@ function copiarTexto(id) {
 }
 
 function Criar() {
-    for(let j; j >= cont; j++){
+    document.getElementById('story').innerHTML = topo;
+
+    for(let j = 0; j <= cont; j++){
         let comando = document.getElementById(`Comand${j}`).value
         let resp = document.getElementById(`Resp${j}`).value
-        alert('comando')
-        alert(resp)
+        
+        document.getElementById('story').innerHTML = document.getElementById('story').innerHTML + `
+    if(msg.body === '${comando}') {
+        msg.reply('${resp}');
+    };`
+        
+
     }
 
-    let cod = base + '\n' + rst
-    document.getElementById("story").innerHTML=cod
+    document.getElementById('story').innerHTML = document.getElementById('story').innerHTML + fim;
+
 }
 
-
-let rst = (`if(msg.body === '!ping') {
-	msg.reply('pong');
+function baixar() {
+    //uriContent = "data:application/octet-stream," + encodeURIComponent(document.getElementById('story').innerHTML);
+    //newWindow = window.open(uriContent, 'neuesDokument');
+    download('script.js', document.getElementById('story').innerHTML);
 }
-})`)
+
+function download(filename, text) {
+    var pom = document.createElement('a');
+    pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    pom.setAttribute('download', filename);
+
+    if (document.createEvent) {
+        var event = document.createEvent('MouseEvents');
+        event.initEvent('click', true, true);
+        pom.dispatchEvent(event);
+    }
+    else {
+        pom.click();
+    }
+}
