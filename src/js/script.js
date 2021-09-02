@@ -26,12 +26,18 @@ function AddOpt() {
     let opt = document.createElement("select")
     opt.id = `opt${cont}`
     opt.className = "opt"
+    opt.setAttribute('onchange', 'javascript:selectch(this)')
 
     let optEnvMsg = document.createElement("option")
     optEnvMsg.value = "EnvMsg"
     optEnvMsg.appendChild(document.createTextNode("Enviar Mensagem"))
 
+    let optEnvArq = document.createElement("option")
+    optEnvArq.value = "EnvArq"
+    optEnvArq.appendChild(document.createTextNode("Enviar Arquivo"))
+
     opt.appendChild(optEnvMsg)
+    opt.appendChild(optEnvArq)
 
     // Resp
     let resp = document.createElement("input")
@@ -57,17 +63,24 @@ function copiarTexto(id) {
 }
 
 function Criar() {
+    let comand_resp;
     document.getElementById('story').innerHTML = topo;
 
     for(let j = 0; j <= cont; j++){
         let comando = document.getElementById(`Comand${j}`).value
         let resp = document.getElementById(`Resp${j}`).value
-        
+        let cmd = document.getElementById(`opt${j}`).value
+
+        if (cmd == 'EnvMsg') {
+            comand_resp = `msg.reply('${resp}');`
+        } else if (cmd == 'EnvArq') {
+            comand_resp = `ws.sendMessage(msg.from, MessageMedia.fromFilePath('./Arqs/${resp}'))`
+        }  
+
         document.getElementById('story').innerHTML = document.getElementById('story').innerHTML + `
     if(msg.body === '${comando}') {
-        msg.reply('${resp}');
-    };`
-        
+        ${comand_resp}
+    };`  
 
     }
 
@@ -94,4 +107,16 @@ function download(filename, text) {
     else {
         pom.click();
     }
+}
+
+function selectch(obj) {
+    var id = obj.id
+    let cmd = document.getElementById(id).value
+    var numId = id.substring(id.length-1, id.length)
+
+    if (cmd == 'EnvMsg') {
+        document.getElementById(`Resp${numId}`).placeholder = 'Resposta'
+    } else if (cmd == 'EnvArq') {
+        document.getElementById(`Resp${numId}`).placeholder = 'ex: Image.png'
+    }  
 }
