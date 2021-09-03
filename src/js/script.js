@@ -1,7 +1,7 @@
 var cont = 0;
 var comandoComp;
 
-const topo = `function scripts(msg) {`
+const topo = `function scripts(msg, ws, MessageMedia) {`
 const fim = `
 };
 
