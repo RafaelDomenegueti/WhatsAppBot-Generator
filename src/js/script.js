@@ -9,7 +9,6 @@ module.exports = { scripts };`
 
 function AddOpt() {
     cont++
-    
 
     let item = document.createElement("div")
     item.id = `item${cont}`
@@ -120,3 +119,30 @@ function selectch(obj) {
         document.getElementById(`Resp${numId}`).placeholder = 'ex: Image.png'
     }  
 }
+
+const BackG = Math.floor(Math.random() * 5);
+let color;
+
+switch (BackG) {
+    case 0:
+        color = "#D98BA7";
+    break;
+    case 1:
+        color = '#82B8D9';
+    break;
+    case 2:
+        color = '#89D9CA';
+    break;
+    case 3:
+        color = '#F2C46D';
+    break;
+    case 4:
+        color = '#F29057';
+    break;
+        
+}
+
+document.body.style.backgroundColor = color;
+document.querySelector('.Button').style.backgroundColor = color;
+document.querySelector('#criarButton').style.backgroundColor = color;
+document.querySelector('#Title').style.color = color;

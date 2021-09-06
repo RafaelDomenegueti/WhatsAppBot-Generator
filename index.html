@@ -6,12 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bot Creator</title>
     <link rel="stylesheet" href="./src/css/style.css">
-    <link rel="stylesheet" href="./src/css/button.css">
-    <script src="./src/js/script.js"></script>
 </head>
 <body>
     <div id="back">
-        <h1 style="text-align: center;">WhatsAppBot Creator</h1>
+        <h1 id="Title">WhatsAppBot Creator</h1>
 
         <div id="box">
 
@@ -26,14 +24,17 @@
 
         </div>
 
-        <div id="AddOpt">
-            <button class="bn54" onclick="AddOpt()" id="AddOpt">
-                <span class="bn54span">+</span>
-            </button>
+        <div id='AddOptL'>
+            <div onclick="AddOpt()" class="Button">
+                <span class="ButtonValue">+</span>
+            </div>
         </div>
         
+        
         <div id="Codigo">
-            <input type="button" value="Criar" id="criarButton" onclick="Criar()">
+            <div class="Button" id="criarButton" onclick="Criar()">
+                <span class="ButtonValue">Criar</span>
+            </div>
 
             <textarea id="story" name="story"
             rows="40" style="position: relative;top: 20px;">
@@ -46,5 +47,7 @@
         <input type="button" value="Baixar" onclick="baixar()">
     </div>
 
+
+    <script src="./src/js/script.js"></script>
 </body>
 </html>
