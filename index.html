@@ -15,10 +15,12 @@
 
             <div id="item0" class="item">
                 <input type="text" id="Comand0" class="inputText" placeholder="Comando">
-                <select id="opt0" class="opt" onchange="javascript:selectch(this)">
-                    <option value="EnvMsg">Enviar Mensagem</option>
-                    <option value="EnvArq">Enviar Arquivo</option>
-                </select>
+                <div class="OptDiv">
+                    <select id="opt0" class="opt" onchange="javascript:selectch(this)">
+                        <option value="EnvMsg" class="OptEnv">Enviar Mensagem</option>
+                        <option value="EnvArq" class="OptEnv">Enviar Arquivo</option>
+                    </select>
+                </div>
                 <input type="text" id="Resp0" class="inputText" placeholder="Resposta">
             </div>
 
@@ -37,17 +39,21 @@
             </div>
 
             <textarea id="story" name="story"
-            rows="40" style="position: relative;top: 20px;">
+            rows="40">
             
             </textarea>
             
-            <button onclick="copiarTexto(`story`)" style="position: relative">Copiar</button>
         </div>
-    
-        <input type="button" value="Baixar" onclick="baixar()">
+
+        <div id="DivBaixarButton">
+            <div class="Button" id="BaixarButton" onclick="baixar()">
+                <span class="ButtonValue">Baixar</span>
+            </div>
+        </div>
+
     </div>
 
-
+    <script src="./src/js/background.js"></script>
     <script src="./src/js/script.js"></script>
 </body>
 </html>

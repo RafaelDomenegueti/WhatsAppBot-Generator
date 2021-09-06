@@ -1,12 +1,16 @@
+//  Variaveis Sistema
 var cont = 0;
 var comandoComp;
 
+// Variaveis Gerador
 const topo = `function scripts(msg, ws, MessageMedia) {`
 const fim = `
 };
 
 module.exports = { scripts };`
 
+
+//  Adicionar Options
 function AddOpt() {
     cont++
 
@@ -20,23 +24,32 @@ function AddOpt() {
     Comand.id=`Comand${cont}`
     Comand.className=`inputText`
     Comand.placeholder="Comando"
+    Comand.style.border = `2px solid ${color}`
 
     // Opt
+    let OptDiv = document.createElement("div")
+    OptDiv.className = 'OptDiv'
+
     let opt = document.createElement("select")
     opt.id = `opt${cont}`
     opt.className = "opt"
+    opt.style.border = `2px solid ${color}`
+    opt.style.backgroundImage = `url("data:image/svg+xml;utf8,<svg fill='${color}' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>")`
     opt.setAttribute('onchange', 'javascript:selectch(this)')
 
     let optEnvMsg = document.createElement("option")
     optEnvMsg.value = "EnvMsg"
+    optEnvMsg.className = 'OptEnv'
     optEnvMsg.appendChild(document.createTextNode("Enviar Mensagem"))
 
     let optEnvArq = document.createElement("option")
     optEnvArq.value = "EnvArq"
+    optEnvArq.className = 'OptEnv'
     optEnvArq.appendChild(document.createTextNode("Enviar Arquivo"))
 
     opt.appendChild(optEnvMsg)
     opt.appendChild(optEnvArq)
+    OptDiv.appendChild(opt)
 
     // Resp
     let resp = document.createElement("input")
@@ -44,10 +57,11 @@ function AddOpt() {
     resp.id=`Resp${cont}`
     resp.className="inputText"
     resp.placeholder="Resposta"
+    resp.style.border = `2px solid ${color}`
 
     // Adiciona na div
     item.appendChild(Comand)
-    item.appendChild(opt)
+    item.appendChild(OptDiv)
     item.appendChild(resp)
 
     // Adiciona a div
@@ -55,12 +69,8 @@ function AddOpt() {
 
 }
 
-function copiarTexto(id) {
-    var textoCopiado = document.getElementById(id);
-    textoCopiado.select();
-    document.execCommand("Copy");
-}
 
+// Gerar Codigo
 function Criar() {
     let comand_resp;
     document.getElementById('story').innerHTML = topo;
@@ -87,12 +97,11 @@ function Criar() {
 
 }
 
+
+//  Gerar Arquivo e Baixar
 function baixar() {
-    //uriContent = "data:application/octet-stream," + encodeURIComponent(document.getElementById('story').innerHTML);
-    //newWindow = window.open(uriContent, 'neuesDokument');
     download('script.js', document.getElementById('story').innerHTML);
 }
-
 function download(filename, text) {
     var pom = document.createElement('a');
     pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
@@ -108,6 +117,8 @@ function download(filename, text) {
     }
 }
 
+
+//  Configuração de Exibição
 function selectch(obj) {
     var id = obj.id
     let cmd = document.getElementById(id).value
@@ -119,30 +130,3 @@ function selectch(obj) {
         document.getElementById(`Resp${numId}`).placeholder = 'ex: Image.png'
     }  
 }
-
-const BackG = Math.floor(Math.random() * 5);
-let color;
-
-switch (BackG) {
-    case 0:
-        color = "#D98BA7";
-    break;
-    case 1:
-        color = '#82B8D9';
-    break;
-    case 2:
-        color = '#89D9CA';
-    break;
-    case 3:
-        color = '#F2C46D';
-    break;
-    case 4:
-        color = '#F29057';
-    break;
-        
-}
-
-document.body.style.backgroundColor = color;
-document.querySelector('.Button').style.backgroundColor = color;
-document.querySelector('#criarButton').style.backgroundColor = color;
-document.querySelector('#Title').style.color = color;
