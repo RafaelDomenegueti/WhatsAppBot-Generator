@@ -21,7 +21,7 @@ switch (BackG) {
 }
 
 document.body.style.backgroundColor = color;
-document.querySelector('.Button').style.backgroundColor = color;
+document.querySelector('#AddOpt').style.backgroundColor = color;
 document.querySelector('#criarButton').style.backgroundColor = color;
 document.querySelector('#Title').style.color = color;
 document.querySelector('#Comand0').style.border = `2px solid ${color}`;

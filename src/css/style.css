@@ -19,13 +19,24 @@
     display: flex;
     justify-content: center;
 }
+#AddOpt{
+    width: 150px;
+    height: 50px;
+}
 .Button{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 150px;
-    height: 50px;
     cursor: pointer;
+}
+.ButtonCls{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    margin-left: 110%;
 }
 .ButtonValue{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -34,9 +45,17 @@
     letter-spacing: 0.7px;
     align-self: center;
     font-weight: bold;
+    -webkit-user-select: none;  
+    -moz-user-select: none;     
+    -ms-user-select: none;      
+    user-select: none; 
 }
 
 /*   Caixa de Codigo   */
+#criarButton{
+    width: 150px;
+    height: 50px;
+}
 .inputText{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     outline: none;
@@ -81,4 +100,8 @@
 #DivBaixarButton{
     display: flex;
     justify-content: end;
+}
+#BaixarButton{
+    width: 150px;
+    height: 50px;
 }

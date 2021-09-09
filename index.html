@@ -19,15 +19,20 @@
                     <select id="opt0" class="opt" onchange="javascript:selectch(this)">
                         <option value="EnvMsg" class="OptEnv">Enviar Mensagem</option>
                         <option value="EnvArq" class="OptEnv">Enviar Arquivo</option>
+                        <option value="EnvStc" class="OptEnv">Enviar Figurinha</option>
                     </select>
                 </div>
                 <input type="text" id="Resp0" class="inputText" placeholder="Resposta">
+                <div class="ButtonCls" id="ext0" onclick="javascript:exit(this)">
+                    <span class="ButtonValue" >x</span>
+                </div>
+
             </div>
 
         </div>
 
         <div id='AddOptL'>
-            <div onclick="AddOpt()" class="Button">
+            <div id="AddOpt" onclick="AddOpt()" class="Button">
                 <span class="ButtonValue">+</span>
             </div>
         </div>

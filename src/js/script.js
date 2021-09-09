@@ -47,8 +47,14 @@ function AddOpt() {
     optEnvArq.className = 'OptEnv'
     optEnvArq.appendChild(document.createTextNode("Enviar Arquivo"))
 
+    let optEnvStc = document.createElement("option")
+    optEnvStc.value = "EnvStc"
+    optEnvStc.className = 'OptEnv'
+    optEnvStc.appendChild(document.createTextNode("Enviar Figurinha"))
+
     opt.appendChild(optEnvMsg)
     opt.appendChild(optEnvArq)
+    opt.appendChild(optEnvStc)
     OptDiv.appendChild(opt)
 
     // Resp
@@ -59,10 +65,22 @@ function AddOpt() {
     resp.placeholder="Resposta"
     resp.style.border = `2px solid ${color}`
 
+    // Button close
+    let ClsDivButton = document.createElement("div")
+    ClsDivButton.className = 'ButtonCls'
+    ClsDivButton.id = `ext${cont}`
+    ClsDivButton.setAttribute('onclick', 'javascript:exit(this)')
+
+    let ClsSpanButton = document.createElement("span")
+    ClsSpanButton.className = 'ButtonValue'
+    ClsSpanButton.appendChild(document.createTextNode("x"))
+    ClsDivButton.appendChild(ClsSpanButton)
+
     // Adiciona na div
     item.appendChild(Comand)
     item.appendChild(OptDiv)
     item.appendChild(resp)
+    item.appendChild(ClsDivButton)
 
     // Adiciona a div
     document.getElementById("box").appendChild(item)
@@ -76,20 +94,30 @@ function Criar() {
     document.getElementById('story').innerHTML = topo;
 
     for(let j = 0; j <= cont; j++){
-        let comando = document.getElementById(`Comand${j}`).value
-        let resp = document.getElementById(`Resp${j}`).value
-        let cmd = document.getElementById(`opt${j}`).value
 
-        if (cmd == 'EnvMsg') {
-            comand_resp = `msg.reply('${resp}');`
-        } else if (cmd == 'EnvArq') {
-            comand_resp = `ws.sendMessage(msg.from, MessageMedia.fromFilePath('./Arqs/${resp}'))`
-        }  
+        if (document.getElementById(`Comand${j}`) != null && document.getElementById(`Resp${j}`) != null){
 
-        document.getElementById('story').innerHTML = document.getElementById('story').innerHTML + `
+            if (document.getElementById(`Comand${j}`).value != '' && document.getElementById(`Resp${j}`).value != ''){
+                let comando = document.getElementById(`Comand${j}`).value
+            let resp = document.getElementById(`Resp${j}`).value
+            let cmd = document.getElementById(`opt${j}`).value
+            
+            if (cmd == 'EnvMsg') {
+                comand_resp = `msg.reply('${resp}');`
+            } else if (cmd == 'EnvArq') {
+                comand_resp = `ws.sendMessage(msg.from, MessageMedia.fromFilePath('./Arqs/${resp}'))`
+            } else if (cmd == 'EnvStc') [
+                comand_resp = `ws.sendMessage(msg.from, MessageMedia.fromFilePath('./Arqs/${resp}'), { sendMediaAsSticker: true }) `
+            ]
+    
+            document.getElementById('story').innerHTML = document.getElementById('story').innerHTML + `
     if(msg.body === '${comando}') {
         ${comand_resp}
     };`  
+
+            }
+
+        }
 
     }
 
@@ -126,7 +154,17 @@ function selectch(obj) {
 
     if (cmd == 'EnvMsg') {
         document.getElementById(`Resp${numId}`).placeholder = 'Resposta'
-    } else if (cmd == 'EnvArq') {
+    } else if (cmd == 'EnvArq' || cmd == 'EnvStc') {
         document.getElementById(`Resp${numId}`).placeholder = 'ex: Image.png'
     }  
+}
+
+
+//  Excluir Option
+function exit(obj) {
+    var id = obj.id
+    var numId = id.replace('ext', '')
+    var opt = document.getElementById(`item${numId}`)
+    
+    opt.parentNode.removeChild(opt);
 }
