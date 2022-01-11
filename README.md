@@ -25,6 +25,7 @@ Este projeto é dividido em duas partes:
 ![](https://github.com/RafaelDomenegueti/WhatsAppBot-Generator/blob/main/Images/Image02.png?raw=true)
 
 3. Executar o "install.bat"
+
 ![](https://github.com/RafaelDomenegueti/WhatsAppBot-Generator/blob/main/Images/Image03.png?raw=true)
 
 
@@ -38,6 +39,7 @@ Exemplo:
 4. Para gerar o código clique em "Criar"
 5. Agora clique em "Baixar" para baixar o arquivo
 6. Coloque-o na pasta dos arquivos base
+
 ![](https://github.com/RafaelDomenegueti/WhatsAppBot-Generator/blob/main/Images/Image05.png?raw=true)
 ps: verifique se o arquivo está com o nome "script.js", se não estiver renomeie o arquivo
 
