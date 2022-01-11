@@ -17,9 +17,11 @@ Este projeto é dividido em duas partes:
 
 #### Arquivos Base
 1. Baixar o repositório da [Base](https://github.com/RafaelDomenegueti/WhatsAppBot-Base)
+
 ![](https://github.com/RafaelDomenegueti/WhatsAppBot-Generator/blob/main/Images/Image01.png?raw=true)
 
 2. Extrair Arquivos
+
 ![](https://github.com/RafaelDomenegueti/WhatsAppBot-Generator/blob/main/Images/Image02.png?raw=true)
 
 3. Executar o "install.bat"
