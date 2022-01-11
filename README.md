@@ -41,6 +41,7 @@ Exemplo:
 6. Coloque-o na pasta dos arquivos base
 
 ![](https://github.com/RafaelDomenegueti/WhatsAppBot-Generator/blob/main/Images/Image05.png?raw=true)
+
 ps: verifique se o arquivo está com o nome "script.js", se não estiver renomeie o arquivo
 
 Pronto, você finalizou a instalação! 😄
@@ -49,11 +50,13 @@ Pronto, você finalizou a instalação! 😄
 Siga as instruções para iniciar o bot.
 
 1. Executar o "Start.bat"
+
 ![](https://github.com/RafaelDomenegueti/WhatsAppBot-Generator/blob/main/Images/Image06.png?raw=true)
 
 2. Abra o aplicativo "WhatsApp" e vá em "Aparelhos Conectados"
 3. Clique em "Conectar um Aparelho"
 4. Leia o QR Code do Terminal
+
 ![](https://github.com/RafaelDomenegueti/WhatsAppBot-Generator/blob/main/Images/Image07.png?raw=true)
 
 Pronto, o bot já está funcionando!
